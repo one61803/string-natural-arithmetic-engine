@@ -118,8 +118,6 @@ def number_plus_number(number1_ST, number2_ST):
         return number_plus_digit(number1_ST, number2_ST)
     elif (len(number2_ST) == 0):
         return number1_ST
-    elif (len(number2_ST) == 1):
-        return number_plus_digit(number1_ST, number2_ST)
     elif (len(number2_ST) > 1):
         number2_last_CH = number2_ST[-1]
         new_number1_ST = number_plus_digit(number1_ST, number2_last_CH)
