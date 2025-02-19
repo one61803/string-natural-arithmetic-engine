@@ -1,6 +1,3 @@
-global debug_1
-debug_1 = False
-
 def succ(digit_CH):
     "Successor function."
     if (digit_CH == ""):
