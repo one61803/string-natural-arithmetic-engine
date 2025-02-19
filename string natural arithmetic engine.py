@@ -1,8 +1,3 @@
-
-global debug_1, debug_2
-debug_1 = False
-debug_2 = False
-
 def succ(digit_CH):
     "Successor function."
     if (digit_CH == ""):
@@ -139,8 +134,6 @@ def digit_times_digit(digit1_CH, digit2_CH):
     "Multiplies two digits."
     accum_ST = "0"
     while not (digit1_CH == "0"):
-        DEBUG(126, debug_1, f"digit1_CH = {digit1_CH}")
-        DEBUG(127, debug_1, f"accum_ST = {accum_ST}")
         accum_ST = number_plus_digit(accum_ST, digit2_CH)
         digit1_CH = pred(digit1_CH)
     return accum_ST
@@ -149,7 +142,7 @@ def DEBUG(line_NT, flag_BL, msg_ST):
     "For debugging: line_NT should be the line number. msg_ST might typically have the form \
      f'variablename = {variablename}'. flag_BL might typically be fed a Boolean parameter debug_# \
      which would be set to True when debugging operation number # is going on. (Different debugging operations \
-     could target/focus_on different parts of the code."
+     could target/focus_on different parts of the code.)"
     if flag_BL:
         print(f"L{line_NT}. " + msg_ST)
 
@@ -177,17 +170,11 @@ def number_times_number(number1_ST, number2_ST):
     else:
         accum_ST = "0"
         for i in range(len(number2_ST)):
-            DEBUG(167, debug_2, f"i = {i}")
             digit_CH = number2_ST[-(i + 1)]
-            DEBUG(169, debug_2, f"digit_CH = {digit_CH}")
             zeroes_ST = "0"*i
-            DEBUG(171, debug_2, f"zeroes_ST = {zeroes_ST}")
             shift_ST = number_times_digit(number1_ST, digit_CH)
-            DEBUG(173, debug_2, f"shift_ST = {shift_ST}")
             addend_ST = shift_ST + zeroes_ST
-            DEBUG(175, debug_2, f"addend_ST = {addend_ST}")
             accum_ST = number_plus_number(accum_ST, addend_ST)
-            DEBUG(177, debug_2, f"accum_ST = {accum_ST}")
         return accum_ST
 
 def digit_versus_digit(digit1_CH, digit2_CH):
